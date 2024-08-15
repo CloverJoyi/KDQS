@@ -1,0 +1,4 @@
+repository "KDQS@cloverjoyi@cloud.cn"
+  path "/"
+    br "/main"
+    co "/main"
