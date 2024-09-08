@@ -1,6 +1,5 @@
-
-using UnityEditor;
 using UnityEngine;
+
 
 public static class Triggers
 {
@@ -8,7 +7,6 @@ public static class Triggers
     static LayerMask Ground;
     static GameObject m_groundCheck;
     static GameObject m_attackGameObject;
-    static GameObject m_shootBullet;
     public static bool isGround;
 
 
@@ -17,7 +15,7 @@ public static class Triggers
         Ground = LayerMask.GetMask("Ground");
         m_groundCheck = GameObject.Find("GroundCheck");
         m_attackGameObject = GameObject.Find("AttackBox");
-        m_shootBullet = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefab/Shoot.prefab", typeof(GameObject));
+        //m_shootBullet = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefab/Shoot.prefab", typeof(GameObject));
         m_attackGameObject.SetActive(false);
 
     }
@@ -44,10 +42,6 @@ public static class Triggers
         return m_attackGameObject;
     }
 
-    public static GameObject GetShootBullet()
-    {
-        return m_shootBullet;
-    }
 
     public static void AttackEnable()
     {

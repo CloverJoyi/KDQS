@@ -978,6 +978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c651ab633a07d254aa9ccf596a0fc344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bullet: {fileID: 6369931765548072229, guid: a847e8f6323c05c468a77f13e5e38ac0, type: 3}
   entity: {fileID: 334721239}
 --- !u!114 &334721241
 MonoBehaviour:
@@ -2041,6 +2042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5a4eab968583a445877e6b6a25157e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bullet: {fileID: 0}
   entity: {fileID: 1076324605}
 --- !u!95 &1076324607
 Animator:

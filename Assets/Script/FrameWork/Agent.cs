@@ -7,6 +7,7 @@ interface IAgent
 
 public class Agent : MonoBehaviour, IAgent
 {
+    public GameObject bullet;
     public Transform entity;
     public T GetEnitityComponment<T>()
     {

@@ -143,7 +143,7 @@ public class BehaviourStateBase
         if (m_hasInit) return;
         m_hasInit = true;
         jumpCount = 0;
-        m_shootBullet = Triggers.GetShootBullet();
+        m_shootBullet = m_player.GetComponent<Agent>().bullet;
     }
 
 
