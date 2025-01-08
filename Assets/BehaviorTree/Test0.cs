@@ -4,13 +4,14 @@ using UnityEngine;
 public class Test0 : MonoBehaviour{
     public Transform Pos1;
     public Transform Pos2;
+    public Animator anim;
 
-    private Rigidbody rb;
+    private Rigidbody2D rb;
     BehaviorTreeBuilder builder;
 
     private void Awake(){
         builder = new BehaviorTreeBuilder();
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Start(){
