@@ -15,6 +15,10 @@ public class Track : Behavior{
         m_anim = anim;
     }
 
+    protected override void OnInitialize(){
+        m_anim.Play("Track");
+    }
+
     protected override EStatus OnUpdate(){
         // if (m_diedRequest)
         // {

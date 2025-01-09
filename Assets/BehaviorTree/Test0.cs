@@ -9,6 +9,8 @@ public class Test0 : MonoBehaviour{
     private Rigidbody2D rb;
     BehaviorTreeBuilder builder;
 
+    public static bool haveHatred = false; //仇恨判断
+
     private void Awake(){
         builder = new BehaviorTreeBuilder();
         rb = GetComponent<Rigidbody2D>();

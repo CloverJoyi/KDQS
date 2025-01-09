@@ -11,6 +11,8 @@ public class Attack : Behavior{
     private float durTime = 1f;
     private float backTime = 1f;
 
+    public static int attackCount = 0;
+
     public Attack(Rigidbody2D rb, Animator anim){
         m_rb = rb;
         m_anim = anim;
@@ -44,6 +46,7 @@ public class Attack : Behavior{
     }
 
     public void AI_AttackActive(){
+        attackCount++;
         m_attackBox.SetActive(true);
     }
 
