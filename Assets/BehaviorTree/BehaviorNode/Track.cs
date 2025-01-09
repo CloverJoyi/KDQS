@@ -20,11 +20,6 @@ public class Track : Behavior{
     }
 
     protected override EStatus OnUpdate(){
-        // if (m_diedRequest)
-        // {
-        //     m_fsm.TransitionState(AIStateType.Died);
-        // }
-
         tracktimer += Time.deltaTime;
         if (tracktimer > 0.2f && canTrack){
             //Debug.Log("Track");

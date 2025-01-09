@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 public class BossHealth : MonoBehaviour{
-    public int health = 100;
+    public static int health = 100;
 
     public static event Action BossHurt;
 

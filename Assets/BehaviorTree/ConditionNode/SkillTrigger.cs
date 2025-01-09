@@ -12,3 +12,11 @@ public class SkillTrigger : Behavior{
         return EStatus.Failure;
     }
 }
+
+public partial class BehaviorTreeBuilder{
+    public BehaviorTreeBuilder SkillTrigger(){
+        var node = new SkillTrigger();
+        AddBehavior(node);
+        return this;
+    }
+}

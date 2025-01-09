@@ -8,10 +8,12 @@ public class WatchTrigger : Behavior{
     }
 
     protected override EStatus OnUpdate(){
-        if (ExploreAreaUtil.WatchBox(m_rb) != null || Test0.haveHatred)
+        if (ExploreAreaUtil.WatchBox(m_rb) != null || Test0.haveHatred){
+            Test0.haveHatred = true;
             return EStatus.Success;
-        else
-            return EStatus.Failure;
+        }
+
+        return EStatus.Failure;
     }
 }
 

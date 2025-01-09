@@ -2,13 +2,18 @@ using UnityEngine;
 
 public class Idle : Behavior{
     private Animator m_anim;
-    
+
     public Idle(Animator anim){
         m_anim = anim;
     }
+
     protected override EStatus OnUpdate(){
-        m_anim.Play("Idle");
-        return EStatus.Success;
+        if (!Test0.haveHatred){
+            m_anim.Play("Idle");
+            return EStatus.Success;
+        }
+
+        return EStatus.Failure;
     }
 }
 
