@@ -41,7 +41,7 @@ public class Skill : Behavior{
 }
 
 public partial class BehaviorTreeBuilder{
-    public BehaviorTreeBuilder Skill(Rigidbody2D rb, Animator anim){
+    public BehaviorTreeBuilder Skill(Animator anim, Rigidbody2D rb){
         var node = new Skill(rb, anim);
         AddBehavior(node);
         return this;

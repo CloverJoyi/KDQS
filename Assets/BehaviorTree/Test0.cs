@@ -25,12 +25,39 @@ public class Test0 : MonoBehaviour{
         //     .Back()
         //     .End();
         // builder.TreeTick();
-        builder.Sequence()
-            .Move(rb, Pos1, Pos2)
-            .End();
+        BuildTree();
     }
 
     private void Update(){
         builder.TreeTick();
+    }
+
+
+    private void OnDrawGizmos(){
+        ExploreAreaUtil.DrawWatchBox(rb);
+        ExploreAreaUtil.DrawAttackBox(rb);
+    }
+
+    private void BuildTree(){
+        builder.Seletctor()
+            .Sequence()
+            .DeidTrigger()
+            .Died(anim, rb)
+            .Sequence()
+            .SkillTrigger()
+            .ChangeDirection(rb)
+            .Skill(anim, rb)
+            .Sequence()
+            .AttackTrigger(rb)
+            .ChangeDirection(rb)
+            .Attack(rb, anim)
+            .Sequence()
+            .WatchTrigger(rb)
+            .ChangeDirection(rb)
+            .Track(rb, anim)
+            .ChangeDirection(rb)
+            .Sequence()
+            .Idle(anim)
+            .End();
     }
 }

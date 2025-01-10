@@ -24,3 +24,11 @@ public class Died : Behavior{
         }
     }
 }
+
+public partial class BehaviorTreeBuilder{
+    public BehaviorTreeBuilder Died(Animator anim, Rigidbody2D rb){
+        var node = new Died(anim, rb);
+        AddBehavior(node);
+        return this;
+    }
+}

@@ -11,3 +11,11 @@ public class DiedTrigger : Behavior{
         return EStatus.Failure;
     }
 }
+
+public partial class BehaviorTreeBuilder{
+    public BehaviorTreeBuilder DeidTrigger(){
+        var node = new DiedTrigger();
+        AddBehavior(node);
+        return this;
+    }
+}
