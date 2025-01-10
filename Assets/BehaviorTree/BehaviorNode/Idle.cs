@@ -8,12 +8,12 @@ public class Idle : Behavior{
     }
 
     protected override EStatus OnUpdate(){
-        if (!Test0.haveHatred){
-            m_anim.Play("Idle");
-            return EStatus.Success;
-        }
+        //if (!Test0.haveHatred){
+        m_anim.Play("Idle");
+        return EStatus.Success;
+        //}
 
-        return EStatus.Failure;
+        //return EStatus.Failure;
     }
 }
 

@@ -14,6 +14,8 @@ public class Died : Behavior{
 
     protected override void OnInitialize(){
         m_pos = m_rb.position;
+        m_rb.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        m_rb.constraints = RigidbodyConstraints2D.FreezeAll;
         m_anim.Play("Died");
     }
 

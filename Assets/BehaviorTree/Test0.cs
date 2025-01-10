@@ -3,14 +3,20 @@ using UnityEngine;
 
 public class Test0 : MonoBehaviour{
     public Animator anim;
-    public Rigidbody2D rb;
+    public static Rigidbody2D rb;
     public static bool haveHatred = false; //仇恨判断
+    public static bool bossOnGroung;
+    public static bool attack => ExploreAreaUtil.AttackBox(rb) == null ? false : true;
+    public static bool watch => ExploreAreaUtil.WatchBox(rb) == null ? false : true;
 
-    BehaviorTreeBuilder builder;
+    private BehaviorTreeBuilder builder;
+    private GameObject boss_GroundCheck;
 
 
     private void Awake(){
         builder = new BehaviorTreeBuilder();
+        rb = this.GetComponent<Rigidbody2D>();
+        boss_GroundCheck = GameObject.Find("BossGroundCheck");
     }
 
     private void Start(){
@@ -27,13 +33,14 @@ public class Test0 : MonoBehaviour{
 
     private void Update(){
         builder.TreeTick();
+        bossOnGroung = IsBossGround();
     }
 
 
-    private void OnDrawGizmos(){
-        ExploreAreaUtil.DrawWatchBox(rb);
-        ExploreAreaUtil.DrawAttackBox(rb);
-    }
+    // private void OnDrawGizmos(){
+    //     ExploreAreaUtil.DrawWatchBox(rb);
+    //     ExploreAreaUtil.DrawAttackBox(rb);
+    // }
 
     private void BuildTree(){
         builder.Seletctor()
@@ -47,11 +54,13 @@ public class Test0 : MonoBehaviour{
             .Skill(anim, rb)
             .Back()
             .Sequence()
+            .CDNode(5)
             .AttackTrigger(rb)
             .ChangeDirection(rb)
             .Attack(rb, anim)
             .Back()
             .Sequence()
+            .CDNode(5)
             .WatchTrigger(rb)
             .ChangeDirection(rb)
             .Track(rb, anim)
@@ -61,5 +70,9 @@ public class Test0 : MonoBehaviour{
             .Idle(anim)
             .Back()
             .End();
+    }
+
+    private bool IsBossGround(){
+        return Physics2D.OverlapCircle(boss_GroundCheck.transform.position, 0.2f, Triggers.Ground);
     }
 }

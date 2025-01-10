@@ -8,7 +8,7 @@ public class AttackTrigger : Behavior{
     }
 
     protected override EStatus OnUpdate(){
-        if (ExploreAreaUtil.AttackBox(m_rb) != null){
+        if (Test0.attack){
             Test0.haveHatred = true;
             return EStatus.Success;
         }

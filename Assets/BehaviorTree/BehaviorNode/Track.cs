@@ -3,6 +3,7 @@ using UnityEngine;
 public class Track : Behavior{
     private Rigidbody2D m_rb;
     private Animator m_anim;
+    private Transform m_player;
 
     private bool canTrack = true;
     private float tracktimer = 0f;
@@ -13,6 +14,7 @@ public class Track : Behavior{
     public Track(Rigidbody2D rb, Animator anim){
         m_rb = rb;
         m_anim = anim;
+        m_player = GameObject.Find("Player").transform;
     }
 
     protected override void OnInitialize(){
@@ -27,9 +29,13 @@ public class Track : Behavior{
             canTrack = false;
         }
 
-        if (m_rb.velocity.y == 0 && !canTrack){
+        if (tracktimer > 0.4f && Test0.bossOnGroung){
+            //m_anim.Play("Idle");
             return EStatus.Success;
         }
+        // if (m_rb.velocity == Vector2.zero){
+        //     
+        // }
 
         return EStatus.Running;
     }
@@ -40,17 +46,15 @@ public class Track : Behavior{
     }
 
     public void AIMove(){
-        Collider2D playerCollider = ExploreAreaUtil.WatchBox(m_rb);
-        Vector2 playerPos = playerCollider.transform.position;
+        Vector2 playerPos = m_player.position;
         Vector2 aiPos = m_rb.position;
+        Debug.Log(playerPos);
         Vector2 relativeDir = (playerPos - aiPos).normalized;
         float distanceX = Mathf.Abs(playerPos.x - aiPos.x);
         float moveTime = distanceX / moveSpeedX;
         moveSpeedY = accelerationY * (moveTime / 2);
 
-
         m_rb.velocity = relativeDir * moveSpeedX + Vector2.up * moveSpeedY;
-
 
         //m_rb.velocity = new Vector2(dir * 5, 8);
     }

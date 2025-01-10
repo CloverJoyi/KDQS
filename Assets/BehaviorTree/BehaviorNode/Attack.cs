@@ -21,6 +21,7 @@ public class Attack : Behavior{
     }
 
     protected override void OnInitialize(){
+        attackCount++;
         m_anim.Play("Attack");
     }
 
@@ -46,7 +47,6 @@ public class Attack : Behavior{
     }
 
     public void AI_AttackActive(){
-        attackCount++;
         m_attackBox.SetActive(true);
     }
 
